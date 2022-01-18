@@ -77,6 +77,18 @@ app.post('/games/:companyId/delete/', (request, response) => {
   })
 })
 
+//Search
+app.post('/search', (req, res)=>{
+  const search = req.body.search
+  const sql = `SELECT * FROM companies WHERE name LIKE '%${search}%'`
+  db.all(sql, (err, data) => {
+    if(err) throw err;
+    res.render('index', {
+      companies: data
+    })
+  })
+})
+
 app.listen(3000, function(err){
   if(err) throw err;
   console.log('Connected');

@@ -15,5 +15,10 @@
       <a href="/games/<%= company.id %>">Visa spel</a>
     </div>
   <% }); %>
+  <form action="/search" method="post">
+    <input name="search" type="text">
+    <button>Sök</button>
+  </form>
+  
 </body>
 </html>
